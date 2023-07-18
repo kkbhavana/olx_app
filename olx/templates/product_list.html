@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'logout' %}">logout</a>
+<h1>Product List</h1>
+{{user}}
+{% for products in product%}
+<div class="card" style="width:500px">
+  <img scr="{{ products.image_url }}" alt="image">
+  <p>{{products.title}}</p>
+  <p>{{products.description}}</p>
+  <p>{{products.price}}</p>
+</div>
+<a href="{% url 'update' products.id %}">update</a>
+<a href="{% url 'delete' products.id %}">Delete</a>
+{% endfor %}
+<p><a href="{% url 'create' %}">ADD</a></p>
+</body>
+</html>
